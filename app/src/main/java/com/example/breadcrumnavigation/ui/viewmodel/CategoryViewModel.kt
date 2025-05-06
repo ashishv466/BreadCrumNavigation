@@ -31,7 +31,7 @@ class CategoryViewModel(application: Application) : AndroidViewModel(application
 
     private fun loadCategories() {
         viewModelScope.launch(Dispatchers.IO) {
-            val json = JSONUtil.getJSONFromAssets(getApplication(), "categories.json")
+            val json = JSONUtil.getJSONFromAssets(getApplication())
             val categoryResponse = Gson().fromJson(json, CategoryResponse::class.java)
             rootCategories = categoryResponse.categories
 
